@@ -15,7 +15,7 @@ namespace PCObserve
         private string ans;
         public Config()
         {
-            string url = "http://localhost/20180803/admin.php";
+            string url = "http://localhost:8000/admin.php";
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
             Stream stream = resp.GetResponseStream();

@@ -117,7 +117,7 @@ namespace PCObserve
             string postData = string.Format("s={0}&guid={1}&hostname={2}&ip={3}&mode={4}", ans, guid, hostname, ip, mode);
             UTF8Encoding encoding = new UTF8Encoding();
             byte[] bytepostData = encoding.GetBytes(postData);
-            string URL = "http://localhost/20180803/test.php";
+            string URL = "http://localhost:8000/test.php";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
             ((HttpWebRequest)request).UserAgent = ".NET Framework Example Client";
             request.Method = "POST";
@@ -127,9 +127,9 @@ namespace PCObserve
             dataStream.Write(bytepostData, 0, bytepostData.Length);
             dataStream.Close();
             WebResponse response = request.GetResponse();
-            //Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-            //Stream data = response.GetResponseStream();
-            //response.Close();
+            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+            Stream data = response.GetResponseStream();
+            response.Close();
         }
     }
 }
